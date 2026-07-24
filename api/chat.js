@@ -54,11 +54,25 @@ content:message
 
 });
 
-const data=await response.json();
+const data = await response.json();
+
+console.log(data);
+
+if (!response.ok) {
+
+    return res.status(response.status).json({
+
+        reply: data.error?.message || "Groq API Error",
+
+        debug: data
+
+    });
+
+}
 
 return res.status(200).json({
 
-reply:data.choices[0].message.content
+    reply: data.choices?.[0]?.message?.content || "No response from AI."
 
 });
 
