@@ -53,14 +53,14 @@
         <header class="dash-header">
 
 
-            <h1>
-                Welcome Back 👋
-            </h1>
+            <h1 id="welcomeUser">
+    Welcome 👋
+</h1>
 
 
-            <button>
-                Profile
-            </button>
+            <button id="logoutBtn">
+    Logout
+</button>
 
 
         </header>
@@ -149,23 +149,19 @@
 
 
 
-    <div class="tool-card">
+    <a href="ai-image.html" style="text-decoration:none;color:inherit;">
 
+<div class="tool-card">
 
-        🖼️
+    🖼️
 
+    <h3>AI Image Generator</h3>
 
-        <h3>
-            AI Image Generator
-        </h3>
+    <p>Generate stunning images from text prompts.</p>
 
+</div>
 
-        <p>
-            Generate stunning images from text prompts.
-        </p>
-
-
-    </div>
+</a>
 
 
 
@@ -182,7 +178,9 @@
 
 </div>
 
-
+<script type="module" src="supabase.js"></script>
+<script type="module" src="auth.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
