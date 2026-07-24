@@ -6,43 +6,69 @@ const chatInput = document.querySelector(".chat-input input");
 const sendButton = document.querySelector(".chat-input button");
 const chatWindow = document.querySelector(".chat-window");
 
+function addMessage(text, type) {
+    const msg = document.createElement("div");
+    msg.className = type === "user" ? "user-message" : "ai-message";
+    msg.innerText = text;
+    chatWindow.appendChild(msg);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+async function sendMessage() {
+
+    const message = chatInput.value.trim();
+
+    if (!message) return;
+
+    addMessage(message, "user");
+
+    chatInput.value = "";
+
+    addMessage("🤖 Synvora AI is thinking...", "ai");
+
+    try {
+
+        const response = await fetch("/api/chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: message
+            })
+
+        });
+
+        const data = await response.json();
+
+        chatWindow.removeChild(chatWindow.lastChild);
+
+        addMessage(data.reply, "ai");
+
+    } catch (err) {
+
+        chatWindow.removeChild(chatWindow.lastChild);
+
+        addMessage("❌ Unable to connect with AI.", "ai");
+
+    }
+
+}
 
 if (sendButton) {
 
-    sendButton.addEventListener("click", function () {
+    sendButton.addEventListener("click", sendMessage);
 
-        let userText = chatInput.value.trim();
+    chatInput.addEventListener("keypress", function (e) {
 
-        if (userText === "") return;
+        if (e.key === "Enter") {
 
+            sendMessage();
 
-        let userMessage = document.createElement("div");
-
-        userMessage.className = "user-message";
-
-        userMessage.innerText = userText;
-
-
-        chatWindow.appendChild(userMessage);
-
-        chatInput.value = "";
-
-
-        setTimeout(() => {
-
-            let aiMessage = document.createElement("div");
-
-            aiMessage.className = "ai-message";
-
-            aiMessage.innerText =
-            "I received your request. Synvora AI is processing your idea...";
-
-
-            chatWindow.appendChild(aiMessage);
-
-
-        },800);
-
+        }
 
     });
 
