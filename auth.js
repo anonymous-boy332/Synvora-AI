@@ -139,3 +139,62 @@ window.location.href = "dashboard.html";
 
 
 }
+
+// ======================
+// CHECK LOGIN
+// ======================
+
+const { data } = await supabase.auth.getSession();
+
+const currentPage = window.location.pathname;
+
+if (
+  (currentPage.includes("dashboard.html") ||
+   currentPage.includes("ai-image.html")) &&
+  !data.session
+) {
+  window.location.href = "login.html";
+}
+
+// ======================
+// LOGOUT
+// ======================
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+
+    logoutBtn.addEventListener("click", async () => {
+
+        await supabase.auth.signOut();
+
+        window.location.href = "login.html";
+
+    });
+
+}
+
+// ======================
+// SHOW USER NAME
+// ======================
+
+const welcomeUser = document.getElementById("welcomeUser");
+
+if (welcomeUser) {
+
+    const { data: sessionData } = await supabase.auth.getSession();
+
+    if (sessionData.session) {
+
+        const user = sessionData.session.user;
+
+        const name =
+            user.user_metadata?.full_name ||
+            user.email ||
+            "User";
+
+        welcomeUser.innerText = `Welcome, ${name} 👋`;
+
+    }
+
+}
