@@ -120,6 +120,13 @@ if (generateBtn) {
 
             const data = await response.json();
 
+          if(data.error){
+    imageArea.innerHTML = `
+    <h3>⚠️ AI Server Busy</h3>
+    <p>${data.message}</p>
+    `;
+    return;
+}
 
 
             if (!data.success) {
