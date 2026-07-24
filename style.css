@@ -2375,3 +2375,23 @@ nav{
     align-items: center;
 
 }
+
+/* Image Preview Upgrade */
+
+.preview-content{
+    text-align:center;
+    color:white;
+}
+
+.image-icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.download-btn{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+}
