@@ -18,8 +18,9 @@ export default async function handler(req, res) {
         `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${Date.now()}`;
 
     return res.status(200).json({
-        success: true,
-        image: imageUrl
-    });
+    success: true,
+    image: imageUrl,
+    message: "Image URL created"
+});
 
 }
