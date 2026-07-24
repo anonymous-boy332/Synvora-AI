@@ -1,57 +1,25 @@
 export default async function handler(req, res) {
 
-
-    if(req.method !== "POST"){
-
+    if (req.method !== "POST") {
         return res.status(405).json({
             error: "Method not allowed"
         });
-
     }
-
-
 
     const { prompt } = req.body;
 
-
-
-    if(!prompt){
-
+    if (!prompt) {
         return res.status(400).json({
             error: "Prompt is required"
         });
-
     }
 
+    const imageUrl =
+        `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&seed=${Date.now()}`;
 
-
-    try {
-
-
-        // AI API connection yahan add hoga
-
-
-        return res.status(200).json({
-
-            message: "AI Image request received",
-
-            prompt: prompt
-
-        });
-
-
-
-    } catch(error){
-
-
-        return res.status(500).json({
-
-            error: error.message
-
-        });
-
-
-    }
-
+    return res.status(200).json({
+        success: true,
+        image: imageUrl
+    });
 
 }
