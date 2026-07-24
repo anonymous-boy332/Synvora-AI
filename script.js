@@ -65,64 +65,76 @@ const generateBtn = document.querySelector(".generate-btn");
 const promptBox = document.querySelector("#imagePrompt");
 const imageArea = document.querySelector(".image-placeholder");
 
+if (generateBtn) {
 
-if(generateBtn){
+    generateBtn.addEventListener("click", async () => {
 
-    generateBtn.addEventListener("click", function(){
+        const prompt = promptBox.value.trim();
 
-        let prompt = promptBox.value.trim();
-
-
-        if(prompt === ""){
-
+        if (!prompt) {
             alert("Please enter your image prompt");
             return;
-
         }
 
-
         imageArea.innerHTML = `
-
-            <h3>
-                Creating AI Image...
-            </h3>
-
-            <p>
-                Prompt: ${prompt}
-            </p>
-
+            <h3>🎨 Generating AI Image...</h3>
+            <p>Please wait...</p>
         `;
 
+        try {
+
+            const response = await fetch("/api/generate-image", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    prompt: prompt
+                })
+
+            });
+
+            const data = await response.json();
+
+            if (!data.success) {
+                imageArea.innerHTML = `<h3>❌ Failed to generate image</h3>`;
+                return;
+            }
+
+            imageArea.innerHTML = `
+                <div class="preview-content">
+
+                    <img
+                        src="${data.image}"
+                        alt="AI Image"
+                        style="max-width:100%;border-radius:20px;">
+
+                    <br><br>
+
+                    <a href="${data.image}" target="_blank">
+
+                        <button class="download-btn">
+                            Download Image
+                        </button>
+
+                    </a>
+
+                </div>
+            `;
+
+        } catch (error) {
+
+            imageArea.innerHTML = `
+                <h3>❌ Error</h3>
+                <p>${error.message}</p>
+            `;
+
+        }
 
     });
 
 }
 
-/* Image Preview Upgrade */
-
-
-.preview-content{
-
-    text-align:center;
-    color:white;
-
-}
-
-
-.image-icon{
-
-    font-size:60px;
-    margin-bottom:20px;
-
-}
-
-
-.download-btn{
-
-    margin-top:20px;
-    padding:12px 30px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-
-}
