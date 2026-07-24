@@ -13,9 +13,7 @@ if (sendButton) {
 
         let userText = chatInput.value.trim();
 
-        if (userText === "") {
-            return;
-        }
+        if (userText === "") return;
 
 
         let userMessage = document.createElement("div");
@@ -27,11 +25,10 @@ if (sendButton) {
 
         chatWindow.appendChild(userMessage);
 
-
         chatInput.value = "";
 
 
-        setTimeout(function () {
+        setTimeout(() => {
 
             let aiMessage = document.createElement("div");
 
@@ -44,7 +41,7 @@ if (sendButton) {
             chatWindow.appendChild(aiMessage);
 
 
-        }, 800);
+        },800);
 
 
     });
@@ -66,159 +63,148 @@ const imageArea = document.querySelector(".image-placeholder");
 if (generateBtn) {
 
 
-    generateBtn.addEventListener("click", async () => {
+generateBtn.addEventListener("click", async()=>{
 
 
-        const prompt = promptBox.value.trim();
+const prompt = promptBox.value.trim();
 
 
-        if (!prompt) {
+if(!prompt){
 
-            alert("Please enter your image prompt");
+alert("Please enter your image prompt");
 
-            return;
+return;
 
-        }
-
-
-        imageArea.innerHTML = `
-
-            <h3>🎨 Generating AI Image...</h3>
-
-            <p>Please wait...</p>
-
-        `;
-
-
-
-        try {
-
-
-            const response = await fetch("/api/generate-image", {
-
-
-                method: "POST",
-
-
-                headers: {
-
-                    "Content-Type": "application/json"
-
-                },
-
-
-                body: JSON.stringify({
-
-                    prompt: prompt
-
-                })
-
-
-            });
-
-
-
-            const data = await response.json();
-
-          if(data.error){
-    imageArea.innerHTML = `
-    <h3>⚠️ AI Server Busy</h3>
-    <p>${data.message}</p>
-    `;
-    return;
 }
 
 
-            if (!data.success) {
+imageArea.innerHTML = `
 
+<h3>🎨 Generating AI Image...</h3>
+<p>Please wait...</p>
 
-                imageArea.innerHTML = `
-
-                <h3>❌ Failed to generate image</h3>
-
-                `;
-
-
-                return;
-
-
-            }
+`;
 
 
 
-            imageArea.innerHTML = `
+try{
 
 
-            <div class="preview-content">
+const response = await fetch("/api/generate-image",{
 
+method:"POST",
 
-                <img
+headers:{
 
-                src="${data.image}"
+"Content-Type":"application/json"
 
-                alt="Synvora AI Generated Image"
+},
 
-                class="generated-image"
+body:JSON.stringify({
 
+prompt:prompt
 
-                onload="this.style.opacity='1'"
+})
 
-                style="
-                max-width:100%;
-                border-radius:20px;
-                opacity:0;
-                transition:0.5s;
-                "
-
-                >
-
-
-                <br><br>
-
-
-                <button
-
-                class="download-btn"
-
-                onclick="downloadImage('${data.image}')"
-
-                >
-
-                Download Image
-
-                </button>
+});
 
 
 
-            </div>
-
-
-            `;
+const data = await response.json();
 
 
 
-        } catch (error) {
+if(data.error){
+
+imageArea.innerHTML=`
+
+<h3>⚠️ AI Server Busy</h3>
+
+<p>${data.message}</p>
+
+`;
+
+return;
+
+}
 
 
 
-            imageArea.innerHTML = `
+
+if(!data.success){
+
+imageArea.innerHTML=`
+
+<h3>❌ Image generation failed</h3>
+
+`;
+
+return;
+
+}
 
 
-            <h3>❌ Error</h3>
-
-            <p>${error.message}</p>
 
 
-            `;
+imageArea.innerHTML=`
+
+<div class="preview-content">
+
+
+<img
+
+src="${data.image}"
+
+alt="Synvora AI Image"
+
+class="generated-image"
+
+style="
+width:100%;
+border-radius:20px;
+"
+
+onerror="imageError(this)"
+
+>
+
+
+<br><br>
+
+
+<button class="download-btn"
+onclick="openImage('${data.image}')">
+
+Download Image
+
+</button>
+
+
+</div>
+
+`;
 
 
 
-        }
+}
+
+catch(error){
+
+
+imageArea.innerHTML=`
+
+<h3>❌ Error</h3>
+
+<p>${error.message}</p>
+
+`;
+
+
+}
 
 
 
-    });
-
+});
 
 
 }
@@ -226,48 +212,36 @@ if (generateBtn) {
 
 
 // ==========================
-// DOWNLOAD IMAGE
+// IMAGE ERROR
 // ==========================
 
 
-async function downloadImage(url) {
+function imageError(img){
+
+img.style.display="none";
 
 
-    try {
+imageArea.innerHTML += `
 
+<h3>⚠️ Image failed to load</h3>
 
-        const response = await fetch(url);
+<p>AI server did not return image.</p>
 
+`;
 
-        const blob = await response.blob();
-
-
-        const link = document.createElement("a");
-
-
-        link.href = URL.createObjectURL(blob);
-
-
-        link.download = "Synvora-AI-Image.png";
-
-
-        document.body.appendChild(link);
-
-
-        link.click();
-
-
-        document.body.removeChild(link);
+}
 
 
 
-    } catch(error) {
+// ==========================
+// DOWNLOAD / OPEN IMAGE
+// ==========================
 
 
-        alert("Download failed. Please try again.");
+function openImage(url){
 
 
-    }
+window.open(url,"_blank");
 
 
 }
