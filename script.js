@@ -280,6 +280,8 @@ const writerBtn = document.getElementById("generateWriter");
 const writerPrompt = document.getElementById("writerPrompt");
 const writerType = document.getElementById("writerType");
 const writerResult = document.getElementById("writerResult");
+const writerType = document.getElementById("writerType");
+const writerResult = document.getElementById("writerResult");
 
 if (writerBtn) {
 
