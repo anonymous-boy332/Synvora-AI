@@ -271,3 +271,78 @@ window.open(url,"_blank");
 
 
 }
+
+// ==========================
+// AI WRITER
+// ==========================
+
+const writerBtn = document.getElementById("generateWriter");
+const writerPrompt = document.getElementById("writerPrompt");
+const writerType = document.getElementById("writerType");
+const writerResult = document.getElementById("writerResult");
+
+if (writerBtn) {
+
+    writerBtn.addEventListener("click", async () => {
+
+        const prompt = writerPrompt.value.trim();
+
+        if (!prompt) {
+
+            alert("Please enter your content request.");
+
+            return;
+
+        }
+
+        writerResult.innerHTML = "✍️ Synvora AI is writing...";
+
+        try {
+
+            const response = await fetch("/api/writer", {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    type: writerType.value,
+
+                    prompt: prompt
+
+                })
+
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+
+                writerResult.innerHTML = "❌ " + (data.error || "Something went wrong.");
+
+                return;
+
+            }
+
+            writerResult.innerHTML = `
+                <pre style="white-space:pre-wrap;font-family:inherit;">
+${data.content}
+                </pre>
+            `;
+
+        }
+
+        catch (err) {
+
+            writerResult.innerHTML = "❌ " + err.message;
+
+        }
+
+    });
+
+}
