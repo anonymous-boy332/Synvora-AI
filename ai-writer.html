@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Synvora AI Writer</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="writer-page">
+
+
+    <!-- Sidebar -->
+
+    <aside class="ai-sidebar">
+
+
+        <div class="dash-logo">
+            Synvora<span>AI</span>
+        </div>
+
+
+        <ul>
+
+            <li>🤖 AI Chat</li>
+            <li>🎨 AI Image</li>
+            <li>✍️ AI Writer</li>
+            <li>⚡ AI Agents</li>
+            <li>📁 Projects</li>
+
+        </ul>
+
+
+    </aside>
+
+
+
+
+    <!-- Main Writer Area -->
+
+
+    <main class="writer-main">
+
+
+        <header class="ai-header">
+
+
+            <h1>
+                AI Writer
+            </h1>
+
+
+            <button onclick="window.location.href='dashboard.html'">
+    Dashboard
+</button>
+
+
+        </header>
+
+
+
+
+
+        <section class="writer-box">
+
+
+            <h2>
+                Create Content With AI
+            </h2>
+
+
+            <p>
+                Tell Synvora what you want to write.
+            </p>
+
+
+
+            <select id="writerType">
+
+<option value="blog">📝 Blog Post</option>
+
+<option value="email">📧 Email</option>
+
+<option value="caption">📱 Social Media Caption</option>
+
+<option value="marketing">📢 Marketing Copy</option>
+
+<option value="proposal">💼 Business Proposal</option>
+
+<option value="youtube">🎥 YouTube Script</option>
+
+<option value="product">🛒 Product Description</option>
+
+</select>
+
+
+
+            <textarea
+id="writerPrompt"
+placeholder="Example: Write a professional blog about Artificial Intelligence in Business.">
+</textarea>
+
+
+
+            <button
+class="generate-btn"
+id="generateWriter">
+
+✨ Generate Content
+
+</button>
+
+
+
+        </section>
+
+
+
+
+
+        <section class="writer-result">
+
+
+            <h2>
+                Generated Content
+            </h2>
+
+
+            <div class="result-box" id="writerResult">
+
+Your AI generated content will appear here...
+
+</div>
+
+
+        </section>
+
+
+
+
+    </main>
+
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
