@@ -346,3 +346,87 @@ ${data.content}
     });
 
 }
+
+// ==========================
+// AI CODE GENERATOR
+// ==========================
+
+const codeBtn = document.getElementById("generateCode");
+const codePrompt = document.getElementById("codePrompt");
+const codeLanguage = document.getElementById("codeLanguage");
+const codeResult = document.getElementById("codeResult");
+const copyCodeBtn = document.getElementById("copyCode");
+
+if (codeBtn) {
+
+    codeBtn.addEventListener("click", async () => {
+
+        const prompt = codePrompt.value.trim();
+
+        if (!prompt) {
+
+            alert("Please enter your coding request.");
+
+            return;
+
+        }
+
+        codeResult.textContent = "💻 Synvora AI is generating code...";
+
+        try {
+
+            const response = await fetch("/api/code", {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    language: codeLanguage.value,
+
+                    prompt: prompt
+
+                })
+
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+
+                codeResult.textContent = "❌ " + (data.error || "Something went wrong.");
+
+                return;
+
+            }
+
+            codeResult.textContent = data.code;
+
+        }
+
+        catch (err) {
+
+            codeResult.textContent = "❌ " + err.message;
+
+        }
+
+    });
+
+}
+
+if (copyCodeBtn) {
+
+    copyCodeBtn.addEventListener("click", () => {
+
+        navigator.clipboard.writeText(codeResult.textContent);
+
+        alert("✅ Code copied successfully!");
+
+    });
+
+}
