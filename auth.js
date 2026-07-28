@@ -58,7 +58,12 @@ alert(error.message);
 else{
 
 
-alert("Account Created Successfully!");
+const registerMessage = document.getElementById("registerMessage");
+
+if(registerMessage){
+    registerMessage.style.display = "block";
+    registerMessage.textContent = "✓ Account Created Successfully";
+}
 
 
 window.location.href = "dashboard.html";
@@ -125,7 +130,12 @@ alert(error.message);
 else{
 
 
-alert("Login Successful!");
+const loginMessage = document.getElementById("loginMessage");
+
+if(loginMessage){
+    loginMessage.style.display = "block";
+    loginMessage.textContent = "✓ Login Successful";
+}
 
 
 window.location.href = "dashboard.html";
