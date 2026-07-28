@@ -16,6 +16,21 @@
 <body>
 
 
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-head">
+
+<button class="menu-toggle" onclick="toggleSidebar()">
+☰
+</button>
+
+</div>
+
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+
+
 <div class="agents-page">
 
 
@@ -23,24 +38,43 @@
 
     <aside class="ai-sidebar">
 
+<div class="sidebar-card">
 
-        <div class="dash-logo">
-            Synvora<span>AI</span>
-        </div>
+<div class="dash-logo">
+Synvora<span>AI</span>
+</div>
 
+<ul>
 
-        <ul>
+<li><a href="dashboard.html">🏠 Dashboard</a></li>
 
-            <li>🤖 AI Chat</li>
-            <li>🎨 AI Image</li>
-            <li>✍️ AI Writer</li>
-            <li>⚡ AI Agents</li>
-            <li>📁 Projects</li>
+<li><a href="ai-image.html">🖼 Image Generator</a></li>
 
-        </ul>
+<li><a href="ai-writer.html">✍ AI Writer</a></li>
 
+<li><a href="business-planner.html">📄 Business Planner</a></li>
 
-    </aside>
+<li><a href="marketing-ai.html">📢 Marketing AI</a></li>
+
+<li><a href="code-assistant.html">💻 Code Assistant</a></li>
+
+<li class="active">
+<a href="ai-agents.html">🤖 AI Agents</a>
+</li>
+
+<li><a href="projects.html">📁 Projects</a></li>
+
+<li><a href="history.html">🕘 History</a></li>
+
+<li><a href="profile.html">👤 Profile</a></li>
+
+<li><a href="settings.html">⚙ Settings</a></li>
+
+</ul>
+
+</div>
+
+</aside>
 
 
 
@@ -59,9 +93,9 @@
             </h1>
 
 
-            <button>
-                Dashboard
-            </button>
+            <a href="dashboard.html" class="btn">
+    Dashboard
+</a>
 
 
         </header>
@@ -95,23 +129,19 @@
 
             <div class="agent-card">
 
+<h3>
+📢 Marketing Agent
+</h3>
 
-                <h3>
-                    🤖 Marketing Agent
-                </h3>
+<p>
+Create social media campaigns, ads, captions and growth strategies for your business.
+</p>
 
+<button>
+Run Agent
+</button>
 
-                <p>
-                    Creates ads, captions and marketing strategies.
-                </p>
-
-
-                <button>
-                    Run Agent
-                </button>
-
-
-            </div>
+</div>
 
 
 
@@ -119,23 +149,19 @@
 
             <div class="agent-card">
 
+<h3>
+💼 Business Agent
+</h3>
 
-                <h3>
-                    💼 Business Agent
-                </h3>
+<p>
+Analyze ideas, create business plans, reports and smart decisions.
+</p>
 
+<button>
+Run Agent
+</button>
 
-                <p>
-                    Generates reports, plans and business ideas.
-                </p>
-
-
-                <button>
-                    Run Agent
-                </button>
-
-
-            </div>
+</div>
 
 
 
@@ -143,23 +169,19 @@
 
             <div class="agent-card">
 
+<h3>
+🎨 Design Agent
+</h3>
 
-                <h3>
-                    🎨 Design Agent
-                </h3>
+<p>
+Generate creative concepts, branding ideas and design recommendations.
+</p>
 
+<button>
+Run Agent
+</button>
 
-                <p>
-                    Creates creative concepts and design ideas.
-                </p>
-
-
-                <button>
-                    Run Agent
-                </button>
-
-
-            </div>
+</div>
 
 
 
@@ -174,11 +196,11 @@
 
 
             <h2>
-                Give Your Agent A Task
-            </h2>
+Command Your AI Agent
+</h2>
 
 
-            <textarea placeholder="Example: Create a marketing plan for my SaaS product..."></textarea>
+            <textarea placeholder="Describe your business task or idea..."></textarea>
 
 
             <button class="generate-btn">
@@ -197,7 +219,7 @@
 
 </div>
 
-
+<script src="script.js"></script>
 
 </body>
 
