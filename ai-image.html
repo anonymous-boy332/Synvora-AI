@@ -15,161 +15,214 @@
 
 <body>
 
+  <div class="mobile-menu-head">
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        ☰
+    </button>
+</div>
 
-<div class="image-generator">
 
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
-    <!-- Sidebar -->
 
-    <aside class="ai-sidebar">
+<div class="ai-workspace">
 
+  <!-- Sidebar -->
+<aside class="ai-sidebar">
 
-        <div class="dash-logo">
-            Synvora<span>AI</span>
-        </div>
+<div class="sidebar-card">
 
+<div class="dash-logo">
+Synvora<span>AI</span>
+</div>
 
-        <ul>
+<ul>
 
-            <li>🤖 AI Chat</li>
-            <li>🎨 AI Image</li>
-            <li>✍️ AI Writer</li>
-            <li>⚡ AI Agents</li>
-            <li>📁 Projects</li>
+<li><a href="dashboard.html">🏠 Dashboard</a></li>
 
-        </ul>
+<li class="active">
+<a href="ai-image.html">🖼 Image Generator</a>
+</li>
 
+<li><a href="ai-writer.html">✍ AI Writer</a></li>
 
-    </aside>
+<li><a href="business-planner.html">📄 Business Planner</a></li>
 
+<li><a href="marketing-ai.html">📢 Marketing AI</a></li>
 
+<li><a href="code-assistant.html">💻 Code Assistant</a></li>
 
+<li><a href="ai-agents.html">🤖 AI Agents</a></li>
 
-    <!-- Main Content -->
+<li><a href="projects.html">📁 Projects</a></li>
 
+<li><a href="history.html">🕘 History</a></li>
 
-    <main class="image-main">
+<li><a href="profile.html">👤 Profile</a></li>
 
+<li><a href="settings.html">⚙ Settings</a></li>
 
-        <header class="ai-header">
+</ul>
 
+</div>
 
-            <h1>
-                AI Image Generator
-            </h1>
+</aside>
 
 
 
-            <a href="dashboard.html">
+<!-- Main Content -->
 
-                <button type="button">
-                    Dashboard
-                </button>
+<main class="ai-main">
 
-            </a>
 
+<header class="ai-header">
 
-        </header>
+<div class="workspace-title">
 
+<h1>
+🖼 AI Image Generator
+</h1>
 
+<p>
+Create professional AI images with Synvora AI.
+</p>
 
+</div>
 
-        <section class="image-box">
 
+<div class="workspace-actions">
 
-            <h2>
-                Create Images With AI
-            </h2>
+<a href="dashboard.html">
 
+<button class="secondary">
+🏠 Dashboard
+</button>
 
-            <p>
-                Describe your imagination and let Synvora create it.
-            </p>
+</a>
 
 
+<button class="primary">
+⚡ AI Pro
+</button>
 
-            <textarea 
-            id="imagePrompt"
-            placeholder="Example: A luxury futuristic house in Dubai with cinematic lighting..."></textarea>
 
+</div>
 
+</header>
 
-            <button 
-            class="generate-btn"
-            type="button">
 
-                Generate Image
 
-            </button>
 
+<section class="image-generator-card">
 
 
-        </section>
+<h2>
+Create Your AI Image
+</h2>
 
 
+<p>
+Describe your idea and let Synvora AI generate it.
+</p>
 
 
 
-        <section class="generated-area">
+<textarea 
+placeholder="Example: Luxury modern living room interior with golden lights..."
+></textarea>
 
 
-            <h2>
-                Generated Images
-            </h2>
 
+<div class="image-options">
 
 
-            <div class="image-placeholder">
+<select>
 
+<option>
+Living Room
+</option>
 
-    <div class="preview-content">
+<option>
+Bedroom
+</option>
 
+<option>
+Kitchen
+</option>
 
-        <div class="image-icon">
-            🖼️
-        </div>
+<option>
+Office
+</option>
 
+<option>
+Restaurant
+</option>
 
-        <h3>
-            AI Generated Image Preview
-        </h3>
+<option>
+Clothing Store
+</option>
 
+</select>
 
-        <p>
-            Your generated images will appear here.
-        </p>
 
 
-        <button class="download-btn">
+<select>
 
-            Download Image
+<option>
+Realistic
+</option>
 
-        </button>
+<option>
+3D Render
+</option>
 
+<option>
+Luxury Style
+</option>
 
-    </div>
+<option>
+Modern Design
+</option>
+
+</select>
 
 
 </div>
 
 
 
-        </section>
+<button class="generate-btn">
+
+✨ Generate Image
+
+</button>
 
 
 
+<div class="image-result">
 
-    </main>
 
+<div class="placeholder-image">
+
+Your AI Generated Image Will Appear Here
+
+</div>
 
 
 </div>
 
 
+
+</section>
+
+
+</main>
+
+
+</div>
 
 
 <script src="script.js"></script>
-
 
 </body>
 
