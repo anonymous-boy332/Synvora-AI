@@ -18,44 +18,63 @@
 
 <div class="ai-workspace">
 
+<div class="mobile-menu-head">
 
-    <!-- Sidebar -->
+<button class="menu-toggle" onclick="toggleSidebar()">
+☰
+</button>
 
-    <aside class="ai-sidebar">
-
-
-        <div class="dash-logo">
-            Synvora<span>AI</span>
-        </div>
+</div>
 
 
-        <ul>
+<!-- Sidebar -->
 
-<li>🏠 <a href="dashboard.html">Dashboard</a></li>
+<aside class="ai-sidebar">
 
-<li>💬 <a href="#">AI Chat</a></li>
+<div class="sidebar-card">
 
-<li>🖼 <a href="ai-image.html">Image Generator</a></li>
+    <div class="dash-logo">
+        Synvora<span>AI</span>
+    </div>
 
-<li>✍ <a href="ai-writer.html">AI Writer</a></li>
+    <ul>
 
-<li>📄 <a href="#">Business Planner</a></li>
+        <li>
+            <a href="#">💬 AI Chat</a>
+        </li>
 
-<li>📢 <a href="#">Marketing AI</a></li>
+        <li>
+            <a href="ai-image.html">🖼 Image Generator</a>
+        </li>
 
-<li>💻 <a href="#">Code Assistant</a></li>
+        <li class="active">
+            <a href="ai-writer.html">✍ AI Writer</a>
+        </li>
 
-<li>🤖 <a href="#">AI Agents</a></li>
+        <li>
+            <a href="#">📄 Business Planner</a>
+        </li>
 
-<li>📁 <a href="projects.html">Projects</a></li>
+        <li>
+            <a href="#">📢 Marketing AI</a>
+        </li>
 
-<li>⚙ <a href="#">Settings</a></li>
+        <li>
+            <a href="#">💻 Code Assistant</a>
+        </li>
 
-</ul>
+        <li>
+            <a href="#">🤖 AI Agents</a>
+        </li>
 
+    </ul>
 
-    </aside>
+</div>
 
+</aside>
+  
+
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 
     <!-- Main Workspace -->
@@ -63,39 +82,84 @@
 
     <main class="ai-main">
 
-
         <header class="ai-header">
 
-<h1>Synvora AI Workspace</h1>
+<div class="workspace-title">
 
-<div>
+<h1>🤖 Synvora AI Workspace</h1>
+
+<p>
+Your intelligent AI assistant for business, creativity and productivity.
+</p>
+
+</div>
+
+<div class="workspace-actions">
 
 <a href="dashboard.html">
 
-<button>
-Dashboard
+<button class="secondary">
+🏠 Dashboard
 </button>
 
 </a>
+
+<button class="primary">
+⚡ AI Pro
+</button>
 
 </div>
 
 </header>
 
+<!-- Workspace Stats -->
 
+<section class="workspace-stats">
+
+    <div class="workspace-stat-card">
+        <h3>12</h3>
+        <p>AI Tools</p>
+    </div>
+
+    <div class="workspace-stat-card">
+        <h3>156</h3>
+        <p>Projects</p>
+    </div>
+
+    <div class="workspace-stat-card">
+        <h3>2,840</h3>
+        <p>AI Generations</p>
+    </div>
+
+    <div class="workspace-stat-card">
+        <h3>99.9%</h3>
+        <p>Uptime</p>
+    </div>
+
+</section>
 
         <!-- AI Chat Interface -->
 
 <section class="chat-section">
 
-
     <h2>
         Synvora AI Assistant
     </h2>
 
+    <div class="chat-status">
+
+        <div class="ai-online">
+            <span class="status-dot"></span>
+            Synvora AI Online
+        </div>
+
+        <div class="chat-model">
+            Model: Synvora AI Pro
+        </div>
+
+    </div>
 
     <div class="chat-window">
-
 
         <div class="ai-message">
 
@@ -104,13 +168,11 @@ Dashboard
 
         </div>
 
-
         <div class="user-message">
 
             Create a modern AI project idea.
 
         </div>
-
 
         <div class="ai-message">
 
@@ -118,40 +180,32 @@ Dashboard
 
         </div>
 
-
     </div>
-
-
 
     <div class="chat-input">
 
-
-        <input 
+        <input
         type="text"
         placeholder="Type your message...">
-
 
         <button>
             Send
         </button>
 
-
     </div>
-
 
 </section>
 
 
 
-        <section class="ai-tools">
+<section class="ai-tools">
 
 <h2>AI Productivity Suite</h2>
 
 <div class="ai-tool-cards">
 
 <a href="ai-image.html">
-
-<div>
+<div class="ai-tool-card">
 
 🖼
 
@@ -160,12 +214,10 @@ Dashboard
 <p>Create professional AI images.</p>
 
 </div>
-
 </a>
 
 <a href="ai-writer.html">
-
-<div>
+<div class="ai-tool-card">
 
 ✍
 
@@ -174,26 +226,9 @@ Dashboard
 <p>Generate blogs, ads and emails.</p>
 
 </div>
-
 </a>
-
-<div>
-
-  <a href="ai-writer.html" style="text-decoration:none;color:inherit;">
 
 <div class="ai-tool-card">
-
-✍️
-
-<h3>AI Writer Pro</h3>
-
-<p>
-Generate blogs, emails, captions and business content.
-</p>
-
-</div>
-
-</a>
 
 📄
 
@@ -203,7 +238,7 @@ Generate blogs, emails, captions and business content.
 
 </div>
 
-<div>
+<div class="ai-tool-card">
 
 📢
 
@@ -213,7 +248,7 @@ Generate blogs, emails, captions and business content.
 
 </div>
 
-<div>
+<div class="ai-tool-card">
 
 💻
 
@@ -223,7 +258,7 @@ Generate blogs, emails, captions and business content.
 
 </div>
 
-<div>
+<div class="ai-tool-card">
 
 🤖
 
@@ -237,16 +272,14 @@ Generate blogs, emails, captions and business content.
 
 </section>
 
-
-
-    </main>
-
-
+      </main>
 
 </div>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
+
