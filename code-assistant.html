@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Synvora AI - Code Assistant</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="mobile-menu-head">
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+</div>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<div class="ai-workspace">
+
+<!-- Sidebar -->
+
+<aside class="ai-sidebar">
+
+<div class="sidebar-card">
+
+<div class="dash-logo">
+Synvora<span>AI</span>
+</div>
+
+<ul>
+
+<li><a href="dashboard.html">🏠 Dashboard</a></li>
+
+<li><a href="ai-image.html">🖼 Image Generator</a></li>
+
+<li><a href="ai-writer.html">✍ AI Writer</a></li>
+
+<li><a href="business-planner.html">📄 Business Planner</a></li>
+
+<li><a href="marketing-ai.html">📢 Marketing AI</a></li>
+
+<li class="active">
+<a href="code-assistant.html">💻 Code Assistant</a>
+</li>
+
+<li><a href="ai-agents.html">🤖 AI Agents</a></li>
+
+<li><a href="projects.html">📁 Projects</a></li>
+
+<li><a href="history.html">🕘 History</a></li>
+
+<li><a href="profile.html">👤 Profile</a></li>
+
+<li><a href="settings.html">⚙ Settings</a></li>
+
+</ul>
+
+</div>
+
+</aside>
+
+<!-- Main -->
+
+<main class="ai-main">
+
+<header class="ai-header">
+
+<div class="workspace-title">
+
+<h1>💻 AI Code Assistant</h1>
+
+<p>
+Generate HTML, CSS, JavaScript, Python, PHP, Laravel, React and more.
+</p>
+
+</div>
+
+<div class="workspace-actions">
+
+<a href="dashboard.html">
+<button class="secondary">
+🏠 Dashboard
+</button>
+</a>
+
+<button class="primary">
+⚡ AI Pro
+</button>
+
+</div>
+
+</header>
+
+<section class="code-box">
+
+<h2>Generate AI Code</h2>
+
+<p>
+Describe what code you want Synvora AI to generate.
+</p>
+
+<select id="codeLanguage">
+
+<option value="HTML">HTML</option>
+<option value="CSS">CSS</option>
+<option value="JavaScript">JavaScript</option>
+<option value="Python">Python</option>
+<option value="PHP">PHP</option>
+<option value="Laravel">Laravel</option>
+<option value="React">React</option>
+
+</select>
+
+<textarea
+id="codePrompt"
+placeholder="Example: Create a responsive login page using HTML & CSS..."
+></textarea>
+
+<button
+class="generate-btn"
+id="generateCode">
+
+⚡ Generate Code
+
+</button>
+
+<div class="writer-result">
+
+<pre
+id="codeResult"
+class="result-box">
+
+Generated code will appear here...
+
+</pre>
+
+</div>
+
+<br>
+
+<button
+id="copyCode"
+class="secondary">
+
+📋 Copy Code
+
+</button>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

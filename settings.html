@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Synvora AI - Settings</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="mobile-menu-head">
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+</div>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<div class="ai-workspace">
+
+<!-- Sidebar -->
+
+<aside class="ai-sidebar">
+
+<div class="sidebar-card">
+
+<div class="dash-logo">
+Synvora<span>AI</span>
+</div>
+
+<ul>
+
+<li><a href="dashboard.html">🏠 Dashboard</a></li>
+
+<li><a href="ai-image.html">🖼 Image Generator</a></li>
+
+<li><a href="ai-writer.html">✍ AI Writer</a></li>
+
+<li><a href="business-planner.html">📄 Business Planner</a></li>
+
+<li><a href="marketing-ai.html">📢 Marketing AI</a></li>
+
+<li><a href="code-assistant.html">💻 Code Assistant</a></li>
+
+<li><a href="ai-agents.html">🤖 AI Agents</a></li>
+
+<li><a href="projects.html">📁 Projects</a></li>
+
+<li><a href="history.html">🕘 History</a></li>
+
+<li><a href="profile.html">👤 Profile</a></li>
+
+<li class="active">
+<a href="settings.html">⚙ Settings</a>
+</li>
+
+</ul>
+
+</div>
+
+</aside>
+
+<!-- Main -->
+
+<main class="ai-main">
+
+<header class="ai-header">
+
+<div class="workspace-title">
+<h1>⚙ Account Settings</h1>
+<p>Customize your Synvora AI experience.</p>
+</div>
+
+<div class="workspace-actions">
+
+<a href="dashboard.html">
+<button class="secondary">🏠 Dashboard</button>
+</a>
+
+<button class="primary">
+⭐ Synvora Pro
+</button>
+
+</div>
+
+</header>
+
+<div class="settings-grid">
+
+<!-- General -->
+
+<section class="settings-card">
+
+<h2>🌍 General Settings</h2>
+
+<label>Language</label>
+
+<select>
+<option>English</option>
+<option>Urdu</option>
+<option>Arabic</option>
+</select>
+
+<label>Theme</label>
+
+<select>
+<option>Dark</option>
+<option>Light</option>
+<option>System Default</option>
+</select>
+
+<button class="generate-btn">
+Save Settings
+</button>
+
+</section>
+
+<!-- Notifications -->
+
+<section class="settings-card">
+
+<h2>🔔 Notifications</h2>
+
+<label>
+<input type="checkbox" checked>
+Email Notifications
+</label>
+
+<label>
+<input type="checkbox" checked>
+Marketing Emails
+</label>
+
+<label>
+<input type="checkbox">
+AI Updates
+</label>
+
+<button class="generate-btn">
+Update Notifications
+</button>
+
+</section>
+
+<!-- Security -->
+
+<section class="settings-card">
+
+<h2>🔒 Security</h2>
+
+<input type="password" placeholder="Current Password">
+
+<input type="password" placeholder="New Password">
+
+<input type="password" placeholder="Confirm Password">
+
+<button class="generate-btn">
+💾 Update Password
+</button>
+
+</section>
+
+<!-- API -->
+
+<section class="settings-card">
+
+<h2>🔑 API Configuration</h2>
+
+<input type="text" placeholder="OpenAI API Key">
+
+<input type="text" placeholder="Gemini API Key">
+
+<button class="generate-btn">
+Save API Keys
+</button>
+
+</section>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
